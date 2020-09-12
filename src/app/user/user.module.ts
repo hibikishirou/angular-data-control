@@ -14,6 +14,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCardModule } from '@angular/material/card';
 
 import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -28,6 +29,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreNgrxModule,
     CommonModule,
+    ReactiveFormsModule,
     FlexLayoutModule,
     MatTableModule,
     MatFormFieldModule,

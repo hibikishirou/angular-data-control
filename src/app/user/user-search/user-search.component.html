@@ -4,13 +4,13 @@
       Search
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <form>
+  <form [formGroup]="searchForm">
     <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
       <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
-        <input matInput>
+        <input formControlName="username" matInput>
       </mat-form-field>
-      <button type="submit" mat-raised-button color="primary">Search</button>
+      <button type="submit" (click)="search()" mat-raised-button color="primary">Search</button>
     </div>
   </form>
 </mat-expansion-panel>
