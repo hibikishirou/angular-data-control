@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UserSearchComponent } from './user-search/user-search.component';
 
 @Component({
   selector: 'app-user',
@@ -6,14 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-
+  @ViewChild('userSearch') userSearch: UserSearchComponent;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  returnSearchData(e) {
+  handleSearchData(e) {
     console.log(e);
+    console.log(this.userSearch.getSearchData());
   }
 
 }

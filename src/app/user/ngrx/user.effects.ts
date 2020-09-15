@@ -12,7 +12,7 @@ export class UserListEffects {
     this.actions$.pipe(
       ofType(GetUserListActions.getUserList),
       mergeMap(() => {
-        return this.userService.getUserList().pipe(
+        return this.userService.getUserListAPI().pipe(
           map((users: any) => {
             const { data } = users;
             if (data) {

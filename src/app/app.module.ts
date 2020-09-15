@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppStoreModule } from './ngrx/store.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ShareModule } from './share/share.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     AppStoreModule,
     AppRoutingModule,
+    ShareModule.forRoot({}),
     BrowserAnimationsModule
   ],
   providers: [],

@@ -36,7 +36,7 @@ const routes: Routes = [
     MatButtonModule,
     MatInputModule,
     MatCardModule,
-    MatExpansionModule
+    MatExpansionModule,
   ],
   providers: [
     UserService

@@ -3,6 +3,8 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/ngrx/app.reducer';
 import * as fromUserList from '../ngrx/user.reducer';
 import * as LoadUserListActions from '../ngrx/user.actions';
+import { Router } from '@angular/router';
+import { StoreService } from 'src/app/share/services/StoreService';
 import { UserService } from '../services/UserService';
 @Component({
   selector: 'app-user-list',
@@ -21,6 +23,8 @@ export class UserListComponent implements OnInit {
   constructor(
     private store: Store<AppState>,
     private userService: UserService,
+    private storeService: StoreService,
+    private router: Router
   ) {
     // this.userPage$ = this.store.pipe(select(fromUserList.selectUserListState));
   }
@@ -41,8 +45,12 @@ export class UserListComponent implements OnInit {
     this.userService.userList.subscribe((userList) => {
       if (userList) {
         this.dataSource = userList;
+        this.storeService.userList = userList;
       }
     });
   }
 
+  viewTask(user) {
+    this.router.navigateByUrl('task', { state: { user } });
+  }
 }

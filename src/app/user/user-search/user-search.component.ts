@@ -1,6 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-user-search',
@@ -13,7 +12,7 @@ export class UserSearchComponent implements OnInit {
   });
 
   @Output()
-  returnSearchData: EventEmitter = new EventEmitter();
+  returnSearchData = new EventEmitter<any>();
 
   constructor() { }
 
@@ -25,6 +24,7 @@ export class UserSearchComponent implements OnInit {
   }
 
   search(): void {
-    this.returnSearchData.emit(this.getSearchData());
+    const searchData = this.getSearchData();
+    this.returnSearchData.emit(searchData);
   }
 }
