@@ -15,16 +15,21 @@ import { MatCardModule } from '@angular/material/card';
 
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
   {
     path: '',
     component: UserComponent
+  },
+  {
+    path: 'detail',
+    component: UserDetailComponent
   }
 ];
 
 @NgModule({
-  declarations: [UserComponent, UserListComponent, UserSearchComponent],
+  declarations: [UserComponent, UserListComponent, UserSearchComponent, UserDetailComponent],
   imports: [
     RouterModule.forChild(routes),
     StoreNgrxModule,

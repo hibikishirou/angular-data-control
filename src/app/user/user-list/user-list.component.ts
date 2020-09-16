@@ -6,6 +6,7 @@ import * as LoadUserListActions from '../ngrx/user.actions';
 import { Router } from '@angular/router';
 import { StoreService } from 'src/app/share/services/StoreService';
 import { UserService } from '../services/UserService';
+import { StoreControlService } from 'src/app/share/services/StoreControlService';
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
@@ -24,6 +25,7 @@ export class UserListComponent implements OnInit {
     private store: Store<AppState>,
     private userService: UserService,
     private storeService: StoreService,
+    private storeControlService: StoreControlService,
     private router: Router
   ) {
     // this.userPage$ = this.store.pipe(select(fromUserList.selectUserListState));
@@ -45,12 +47,15 @@ export class UserListComponent implements OnInit {
     this.userService.userList.subscribe((userList) => {
       if (userList) {
         this.dataSource = userList;
-        this.storeService.userList = userList;
+        this.storeControlService.action('SET_USER_LIST', userList);
       }
     });
   }
 
   viewTask(user) {
     this.router.navigateByUrl('task', { state: { user } });
+  }
+  viewDetail(user) {
+    this.router.navigateByUrl('detail', { state: { user } });
   }
 }
