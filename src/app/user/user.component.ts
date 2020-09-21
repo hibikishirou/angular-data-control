@@ -8,6 +8,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
 })
 export class UserComponent implements OnInit {
   @ViewChild('userSearch') userSearch: UserSearchComponent;
+  tmp = 'Temp';
   constructor() { }
 
   ngOnInit(): void {

@@ -44,7 +44,6 @@ const routes: Routes = [
     MatExpansionModule,
   ],
   providers: [
-    UserService
   ]
 })
 export class UserModule { }
