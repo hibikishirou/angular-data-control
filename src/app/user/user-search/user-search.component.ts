@@ -20,7 +20,7 @@ export class UserSearchComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.parent);
+    console.log('parent:', this.parent);
   }
 
   getSearchData(): any {
@@ -30,5 +30,6 @@ export class UserSearchComponent implements OnInit {
   search(): void {
     const searchData = this.getSearchData();
     this.returnSearchData.emit(searchData);
+    console.log('with parent:', this.parent);
   }
 }

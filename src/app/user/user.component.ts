@@ -9,14 +9,16 @@ import { UserSearchComponent } from './user-search/user-search.component';
 export class UserComponent implements OnInit {
   @ViewChild('userSearch') userSearch: UserSearchComponent;
   tmp = 'Temp';
+  searchData = {};
   constructor() { }
 
   ngOnInit(): void {
   }
 
   handleSearchData(e) {
-    console.log(e);
-    console.log(this.userSearch.getSearchData());
+    console.log('on emit:', e);
+    console.log('one viewchild:', this.userSearch.getSearchData());
+    this.searchData = this.userSearch.getSearchData();
   }
 
 }
